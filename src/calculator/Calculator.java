@@ -11,23 +11,20 @@ import java.util.ArrayList;
  */
 public class Calculator implements Serializable {
 
+    private String semester;
     private static int num_categories;
     private static int num_assignments;
-
     private double total;
     private int subject_num;
     private int assign_num;
     private String letter;
     private ArrayList grades[][];
 
-    @FXML Button btn_start_new;
-
-
-    Calculator(int categories, int assign)
+    Calculator(String semester)
     {
-        num_categories = categories;
-        num_assignments = assign;
-        
+        this.semester = semester;
+        num_categories = 0;
+        num_assignments = 0;
         total = 0.00;
         subject_num = 0;
         assign_num = 0;
@@ -36,12 +33,20 @@ public class Calculator implements Serializable {
 
     }
 
-
-
-    public static double calculate(double earned, double worth, double weight)
+    public String getSemester()
     {
-        double total = (double) (earned / worth) * weight;
+        return semester;
+    }
+
+    public double getTotal()
+    {
         return total;
     }
+
+    public String getLetter()
+    {
+        return letter;
+    }
+
 
 }
